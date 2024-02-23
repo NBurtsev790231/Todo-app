@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="todo-style.css">
+	<script src="todo.js" defer></script>
+	<title>Todo app</title>
+</head>
+<body>
+	<main class="container">
+		<h1>Список ваших задач</h1>
+		<section class="task">
+			<ul id="task-list" class="task_list">
+				<li id="emptyList" class="empty_list">
+					<img class="background_image" src="Img/background-image.jpg" alt="motivation-background-image">
+					<p class="empty_list__text">Список задач пуст</p>
+				</li>
+
+				<li id="task-list-item" class="task_list__item">
+					<span class="task_title">Купить молоко</span>
+					<div class="task_list__button">
+						<button type="button" data-action="done" class="button_action">
+							<img src="Img/icon-done-green.png" alt="icon-done-green" width="30" height=30">
+						</button>
+						<button type="button" data-action="delete" class="button_action">
+							<img src="Img/icon-delete-red.png" alt="icon-delete-red" width="30" height="30">
+						</button>
+					</div>
+				</li>
+			</ul>
+		</section>
+		
+		<section class="card">
+			<div class="card_header">Добавить новую задачу</div>
+			<form action="#" id="form" class="form">
+				<div class="form_item">
+					<input type="text" class=form_text" id="task-input" placeholder="Текст задачи">
+					<small id="smallHelp" class="form_placeholder">Дата, время, суть задачи</small>
+				</div>
+				<button type="submit" class="button_form">Добавить</button>
+			</form>
+		</section>
+	</main>
+</body>
+</html>
