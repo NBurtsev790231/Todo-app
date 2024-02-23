@@ -13,6 +13,7 @@
 	margin: 20px auto;
 	background-color: #f4f4f4;
 	border-radius: 5px;
+	overflow: hidden;
 }
 
 
@@ -81,6 +82,7 @@ h1 {
 
 
 .card_header {
+	display: inline-block;
 	font-size: 17px;
 	padding: 10px;
 }
@@ -91,14 +93,16 @@ h1 {
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: flex-start;
-	padding: 10px;
+	padding: 10px 5px;
+	width: 850px;
 }
 
-input {
-	width: 180px;
-	height: 30px;
-}
 
+.form_text {
+	width: inherit;
+	height: 150px;
+	resize: vertical;
+}
 
 .form_placeholder {
 	padding: 10px 1px;
