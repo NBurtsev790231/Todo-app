@@ -75,9 +75,10 @@ h1 {
 
 
 .card {
-	/*border: 1px solid #000000;*/
+	/*border: 1px solid #7f7ff8;*/
 	padding: 10px;
-	margin: 20px 10px;
+	margin: 20px;
+	width: 840px;
 }
 
 
@@ -94,7 +95,7 @@ h1 {
 	justify-content: flex-start;
 	align-items: flex-start;
 	padding: 10px 5px;
-	width: 850px;
+	width: 830px;
 }
 
 
