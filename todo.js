@@ -1,9 +1,9 @@
 const form = document.querySelector('#form');
-const taskInput = document.querySelector('#task-input');
+const tasktextArea = document.querySelector('#task-text-area');
 const taskList = document.querySelector('#task-list')
 
 console.log(form);
-console.log(taskInput);
+console.log(tasktextArea);
 console.log(taskList);
 
 form.addEventListener('submit', function(event) {
@@ -11,11 +11,11 @@ form.addEventListener('submit', function(event) {
 	event.preventDefault();
 
 	//Вывод текста из поля для ввода
-const taskInputText = taskInput.value
+const taskAreaText = tasktextArea.value
 
 //Добавление новой задачи на страницу
 const tasklistAdd = `<li id="task-list-item" class="task_list__item">
-<span class="task-title">${taskInputText}</span>
+<span class="task-title">${taskAreaText}</span>
 <div class="task_list__button">
 	<button type="button" data-action="done" class="button_action">
 		<img src="Img/icon-done-green.png" alt="icon-done-green" width="30" height=30">

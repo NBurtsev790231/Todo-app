@@ -9,7 +9,7 @@
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 	font-style: italic;
 	width: 900px;
-	height:600px;
+	height: auto;
 	margin: 20px auto;
 	background-color: #f4f4f4;
 	border-radius: 5px;
@@ -54,14 +54,17 @@ h1 {
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
+	flex-wrap: wrap;
 	border: 3px solid #7f7ff8;
-	margin: 10px 0px;
+	margin: 20px 0px;
+	word-break: break-all;
+	text-indent: 35px;
 }
 
 
 .task_list__item,.task_title {
 	font-size: 17px;
-	padding: 5px 2px;
+	padding: 2px;
 }
 
 
