@@ -60,7 +60,7 @@ h1 {
 	justify-content: space-between;
 	align-items: center;
 	flex-wrap: wrap;
-	border: 3px solid #7f7ff8;
+	border: 2px solid #7f7ff8;
 	margin: 20px 0px;
 	word-break: break-all;
 	text-indent: 35px;
@@ -77,6 +77,9 @@ h1 {
 	margin: 3px;
 }
 
+.button_action img {
+	pointer-events: none; /*скрывает взаимдействие с картинкой и клик идет только по кнопке*/
+}
 
 .card {
 	/*border: 1px solid #7f7ff8;*/

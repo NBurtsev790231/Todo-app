@@ -38,3 +38,24 @@ function addTaskList(event) {
 		emptylistText.classList.add('none_style');
 	}
 }
+
+//Удаление задачи из списка
+taskList.addEventListener('click', deleteTask)
+
+
+
+
+
+function deleteTask(event) {
+	//console.log(event.target);
+
+	if (event.target.dataset.action === 'delete'){
+		//console.log('delete task');
+		const parentElement = event.target.closest(`.task_list__item`);
+		parentElement.remove();
+	}
+
+	if (taskList.children.length === 1) {
+		emptylistText.classList.remove('none_style');
+	}
+};
