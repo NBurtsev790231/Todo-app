@@ -33,29 +33,35 @@ function addTaskList(event) {
 	taskText.value = '';
 	taskText.focus();
 	
-	//скрываем блок пустого списка
+	//Проверяем есть ли задачи в списке, если да то скрываем блок
 	if (taskList.children.length > 1) {
 		emptylistText.classList.add('none_style');
 	}
 }
 
-//Удаление задачи из списка
+//Удаляем задачи из списка
 taskList.addEventListener('click', deleteTask)
 
-
-
-
-
 function deleteTask(event) {
-	//console.log(event.target);
-
 	if (event.target.dataset.action === 'delete'){
-		//console.log('delete task');
-		const parentElement = event.target.closest(`.task_list__item`);
-		parentElement.remove();
+		const parentElementDelete = event.target.closest('.task_list__item');
+		parentElementDelete.remove();
 	}
-
+	//Проверяем есть ли задачи в списке, если нет выводим текст блока
 	if (taskList.children.length === 1) {
 		emptylistText.classList.remove('none_style');
+	}
+};
+
+
+//Отмечаем задачу завершенной
+taskList.addEventListener('click', doneTask)
+
+function doneTask(event) {
+	if (event.target.dataset.action === 'done') {
+		const parentElementDone = event.target.closest('.task_list__item');
+		//Находим тег с текстом задачи и применяем к нему стиль для заверешнных задач
+		const taskTitle = parentElementDone.querySelector('span');
+		taskTitle.classList.toggle('task_title__done');
 	}
 };
