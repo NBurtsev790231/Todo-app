@@ -68,8 +68,8 @@ h1 {
 
 
 .task_list__item,.task_title {
-	font-size: 17px;
-	padding: 2px;
+	font-size: 20px;
+	padding: 1px;
 }
 
 
@@ -82,7 +82,8 @@ h1 {
 }
 
 .task_title__done {
-	opacity: 30%; /*Настройка непрозрачности для выполненной задачи*/
+	opacity: 40%; /*Настройка непрозрачности для выполненной задачи*/
+	text-decoration: line-through;
 }
 
 .card {
