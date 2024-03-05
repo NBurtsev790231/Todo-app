@@ -41,12 +41,18 @@ function addTaskList(event) {
 
 //Удаляем задачи из списка
 taskList.addEventListener('click', deleteTask)
-
+//Проверем если клик был не по кнопке удаления задачи
 function deleteTask(event) {
+	if (event.target.dataset.action !== 'delete') {
+		return
+	};
+
+//Проверяем был ли клик по кнопке удалить
 	if (event.target.dataset.action === 'delete'){
 		const parentElementDelete = event.target.closest('.task_list__item');
 		parentElementDelete.remove();
 	}
+
 	//Проверяем есть ли задачи в списке, если нет выводим текст блока
 	if (taskList.children.length === 1) {
 		emptylistText.classList.remove('none_style');
@@ -54,10 +60,17 @@ function deleteTask(event) {
 };
 
 
+
 //Отмечаем задачу завершенной
 taskList.addEventListener('click', doneTask)
-
 function doneTask(event) {
+
+//Проверяем если клик был не по кнопке завершения задачи
+if (event.target.dataset.action !== 'done') {
+	return
+};
+
+//Проверяем был ли клик по кнопке завершено
 	if (event.target.dataset.action === 'done') {
 		const parentElementDone = event.target.closest('.task_list__item');
 		//Находим тег с текстом задачи и применяем к нему стиль для заверешнных задач
