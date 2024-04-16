@@ -23,11 +23,12 @@ function addTaskList(event) {
 
 	//Добавляем задачу в массив с задачами
 	tasks.push(newTask);
-	console.log(tasks);
+
+	const cssClassDone = newTask.done ? 'task-title task_title__done' : 'task-title';
 	
 	//Добавление новой задачи на страницу
-	const tasklistAdd = `<li id="task-list-item" class="task_list__item">
-	<span class="task-title">${taskAreaText}</span>
+	const tasklistAdd = `<li id="${newTask.id}" class="task_list__item">
+	<span class="${cssClassDone}">${newTask.text}</span>
 	<div class="task_list__button">
 		<button type="button" data-action="done" class="button_action">
 			<img src="Img/icon-done-green.png" alt="icon-done-green" width="30" height=30">
@@ -54,15 +55,25 @@ function addTaskList(event) {
 taskList.addEventListener('click', deleteTask)
 //Проверем если клик был не по кнопке удаления задачи
 function deleteTask(event) {
-	if (event.target.dataset.action !== 'delete') {
-		return
-	};
+	if (event.target.dataset.action !== 'delete') return;
 
 //Проверяем был ли клик по кнопке удалить
-	if (event.target.dataset.action === 'delete'){
-		const parentElementDelete = event.target.closest('.task_list__item');
+	const parentElementDelete = event.target.closest('.task_list__item');
+ 
+const idTaskDelete = Number(parentElementDelete.id);
+
+//Находим индекс аздачи в массиве
+const indexTask = tasks.findIndex(function (task) {
+	return task.id == idTaskDelete;
+});
+
+//Удаляем задачу с найденным индексом
+tasks.splice (indexTask, 1);
+
+
+
+	//Удаляем задачу из разметки
 		parentElementDelete.remove();
-	}
 
 	//Проверяем есть ли задачи в списке, если нет выводим текст блока
 	if (taskList.children.length === 1) {
