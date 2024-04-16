@@ -24,6 +24,7 @@ function addTaskList(event) {
 	//Добавляем задачу в массив с задачами
 	tasks.push(newTask);
 
+
 	const cssClassDone = newTask.done ? 'task-title task_title__done' : 'task-title';
 	
 	//Добавление новой задачи на страницу
@@ -53,7 +54,8 @@ function addTaskList(event) {
 
 //Удаляем задачи из списка
 taskList.addEventListener('click', deleteTask)
-//Проверем если клик был не по кнопке удаления задачи
+
+
 function deleteTask(event) {
 	if (event.target.dataset.action !== 'delete') return;
 
@@ -70,12 +72,10 @@ const indexTask = tasks.findIndex(function (task) {
 //Удаляем задачу с найденным индексом
 tasks.splice (indexTask, 1);
 
-
-
-	//Удаляем задачу из разметки
+//Удаляем задачу из разметки
 		parentElementDelete.remove();
 
-	//Проверяем есть ли задачи в списке, если нет выводим текст блока
+//Проверяем есть ли задачи в списке, если нет выводим текст блока
 	if (taskList.children.length === 1) {
 		emptylistText.classList.remove('none_style');
 	}
@@ -85,17 +85,26 @@ tasks.splice (indexTask, 1);
 
 //Отмечаем задачу завершенной
 taskList.addEventListener('click', doneTask)
+
 function doneTask(event) {
 
 //Проверяем если клик был не по кнопке завершения задачи
-if (event.target.dataset.action !== 'done') {
-	return
-};
+if (event.target.dataset.action !== 'done') return;
 
 //Проверяем был ли клик по кнопке завершено
 	if (event.target.dataset.action === 'done') {
 		const parentElementDone = event.target.closest('.task_list__item');
-		//Находим тег с текстом задачи и применяем к нему стиль для заверешнных задач
+//Находим тег с текстом задачи и применяем к нему стиль для заверешнных задач
+
+	const idTaskDone = Number(parentElementDone.id);
+
+//Находим задачи в масиве и меняем их поле done
+	const task = tasks.find((task) => task.id === idTaskDone);
+	task.done = !task.done
+
+	console.log(task);
+
+
 		const taskTitle = parentElementDone.querySelector('span');
 		taskTitle.classList.toggle('task_title__done');
 	}
