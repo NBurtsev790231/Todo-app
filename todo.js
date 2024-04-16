@@ -3,6 +3,7 @@ const taskText = document.querySelector('#task-text-area');
 const taskList = document.querySelector('#task-list')
 const emptylistText = document.querySelector('.empty_list__text')
 
+let tasks = [];
 
 form.addEventListener('submit', addTaskList);
 
@@ -13,6 +14,16 @@ function addTaskList(event) {
 
 		//Вывод текста из поля для ввода
 	const taskAreaText = taskText.value
+
+	const newTask = {
+		id: Date.now(), //Формируем идентификатор используя текущее время
+		text: taskAreaText,
+		done: false,
+	};
+
+	//Добавляем задачу в массив с задачами
+	tasks.push(newTask);
+	console.log(tasks);
 	
 	//Добавление новой задачи на страницу
 	const tasklistAdd = `<li id="task-list-item" class="task_list__item">
@@ -78,3 +89,4 @@ if (event.target.dataset.action !== 'done') {
 		taskTitle.classList.toggle('task_title__done');
 	}
 };
+
