@@ -82,7 +82,6 @@ tasks.splice (indexTask, 1);
 };
 
 
-
 //Отмечаем задачу завершенной
 taskList.addEventListener('click', doneTask)
 
@@ -102,11 +101,8 @@ if (event.target.dataset.action !== 'done') return;
 	const task = tasks.find((task) => task.id === idTaskDone);
 	task.done = !task.done
 
-	console.log(task);
-
 
 		const taskTitle = parentElementDone.querySelector('span');
 		taskTitle.classList.toggle('task_title__done');
 	}
 };
-
